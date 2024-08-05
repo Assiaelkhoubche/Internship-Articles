@@ -34,9 +34,10 @@ class ArticleSerializer(ModelSerializer):
         queryset=Category.objects.all(), source='category', write_only=True
     )
     tags=TagSerializer(read_only=True);
-    tags_ids=serializers.PrimaryKeyRelatedField(
+    tag_ids=serializers.PrimaryKeyRelatedField(
         queryset=Tag.objects.all(), many=True, source='tags', write_only=True
     );
     class Meta:
-        models=Article
-        fields=['id', 'title','content','author','is_pro','category', 'category_id','tags','tag_ids','created_at','updated_at']
+        model=Article
+        fields=['id', 'title','content','author','picture','is_pro','category', 'category_id','tags','tag_ids','created_at','updated_at']
+        extra_kwargs={'author':{'read_only':True}}
