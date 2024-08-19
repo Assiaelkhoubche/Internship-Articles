@@ -42,7 +42,13 @@ class ArticleListView(generics.ListAPIView):
     permission_classes=[AllowAny];
     
     def get_queryset(self):
-        return Article.objects.all()
+        queryset=Article.objects.all();
+        category_id=self.request.query_params.get('category');
+        print('category_id',category_id);
+        if category_id:
+            queryset =queryset.filter(category__id=category_id)
+            
+        return queryset
 
 
 class ArticleRetreiveView(generics.RetrieveAPIView):
@@ -82,19 +88,20 @@ class ArticleDeleteView(generics.DestroyAPIView):
 
 
 
-class CreateListCategory(generics.ListCreateAPIView):
-    serializer_class=CategorySerializer;
-    permission_classes=[IsUserManagerWithModelPermission];
-    
-    def get_queryset(self):
-        return Category.objects.all();
 
 class CategoryList(generics.ListAPIView):
     serializer_class=CategorySerializer;
-    permission_classes=[IsAuthenticated];
+    permission_classes=[IsUserCustomer | IsUserManager];
     
     def get_queryset(self):
-        return Category.objects.all()
+        return Category.objects.all();
+   
+    def get(self, request ,*args , **kwargs):
+        #debugging output
+
+        print(f"User: {request.user}");
+        print(f'User Groups:{request.user.groups.all()}');
+        return super().get(request,*args, **kwargs);
 
 
 class CreateListTage(generics.ListCreateAPIView):

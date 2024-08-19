@@ -19,3 +19,4 @@ class IsUserManagerWithModelPermission(DjangoModelPermissions):
         if request.user.groups.filter(name='userManager').exists():
             return True
         return False
+    

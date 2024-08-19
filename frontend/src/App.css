@@ -4,6 +4,24 @@
 .active{
     @apply text-n-3 underline underline-offset-4
 }
+
+.pagination{
+
+  @apply flex justify-center items-center list-none m-0 p-0
+
+}
+
+.liPagination{
+  @apply mx-[5px] my-0
+}
+
+
+
+
+
+
+
+
 .h1{
     @apply text-5xl lg:text-7xl leading-snug font-bold mb-5
 }

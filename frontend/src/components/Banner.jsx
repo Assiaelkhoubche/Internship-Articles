@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom'
 
 // icons
 import { FaArrowRight } from "react-icons/fa";
+
+
+
 const Banner = () => {
   return (
     <div className='px-4 py-32 bg-black  '>

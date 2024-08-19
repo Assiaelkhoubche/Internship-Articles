@@ -3,7 +3,7 @@ import React from 'react'
 const Article = () => {
   return (
     <div>
-        article details
+        single article
     </div>
   )
 }

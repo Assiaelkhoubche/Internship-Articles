@@ -30,7 +30,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className='bg-black fixed w-full top-0 left-0 right-0'>
+    <header className='bg-black fixed w-full top-0 left-0 right-0 z-50'>
         <nav className='p-3 lg:p-4 flex items-center  lg:gap-20 justify-between  w-full max-w-7xl mx-auto'>
             <Link to='/'
                   className='font-bold text-xl text-white mr-10'

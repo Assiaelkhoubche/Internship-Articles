@@ -39,6 +39,7 @@ export const AuthProvider = ({children}) => {
 
             }else{
                 setIsAuthenticated(true);
+                console.log('token exp:',tokenExpiration<now)
             }
 
         }catch(err){
@@ -54,7 +55,7 @@ export const AuthProvider = ({children}) => {
 
      try{
         
-        const res= await api.post('/api/token/refresh/',{refresh:REFRESH_TOKEN});
+        const res= await api.post('/api/token/refresh/',{refresh:refreshToken});
 
         if(res.status===200){
 
