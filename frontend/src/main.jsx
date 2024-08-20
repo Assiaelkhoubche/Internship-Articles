@@ -20,6 +20,7 @@ import { AuthProvider } from './hooks/AuthProvider.jsx'
 import Activate from './pages/Activate.jsx'
 import ResetPassword from './pages/ResetPassword.jsx'
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 
 
@@ -27,7 +28,10 @@ import ResetPasswordConfirm from './pages/ResetPasswordConfirm.jsx'
 const router=createBrowserRouter([
   {
     path:'/',
-    element:<App/>,
+    element:(
+             <AuthProvider>
+              <App/>
+              </AuthProvider>),
     children:[
       {
         path:'/',
@@ -44,7 +48,7 @@ const router=createBrowserRouter([
         children:[
             {
               path:':id',
-              element:<Article/>
+              element:<Article />
             }
         ]
       },
@@ -82,6 +86,10 @@ const router=createBrowserRouter([
          element:<Activate/>
       },
       {
+        path:'dashboard',
+        element:<Dashboard/>
+      },
+      {
         path:"*",
         element:<NotFound/>
       }
@@ -94,9 +102,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
 
-   <AuthProvider>
+   
      <RouterProvider router={router}/>
-   </AuthProvider>
+   
    
   </React.StrictMode>,
 )

@@ -13,7 +13,7 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
        {filterArticles.map((item,index)=>(
 
           item.picture &&
-             (<Link key={index} to='/' className=' relative group p-5 shadow-lg rounded cursor-pointer'>
+             (<Link key={index} to={`/articles/${item.id}`} className=' relative group p-5 shadow-lg rounded cursor-pointer'>
                <div className='relative'>
                   
                         <img src={item.picture} alt="pic" 

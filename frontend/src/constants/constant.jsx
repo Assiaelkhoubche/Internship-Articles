@@ -21,6 +21,11 @@ export const navItem=[
     {
         path:'/articles',
         link:'Articles'
+    },
+
+    {
+        path:'/dashboard',
+        link:'Dashboard'
     }
 
 ]

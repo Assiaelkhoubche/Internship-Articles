@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -52,6 +52,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
       USERNAME_FIELD='email'
       REQUIRED_FIELDS=['first_name','last_name']
 
+
       def __str__(self):
           return self.email
       
@@ -66,8 +67,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
               'access':str(refresh.access_token)
           }
       
-
-
+      def save(self, *args, **kwargs):
+          super().save(*args, **kwargs)
+          if not self.groups.exists():
+              customer_group, created= Group.objects.get_or_create(name='userCustomer')
+              self.groups.add(customer_group);
+   
 
 class Category(models.Model):
 

@@ -39,10 +39,17 @@ class GoogleSignInSerializer(serializers.Serializer):
 
 
 class CustomUserSerializer(UserCreateSerializer):
+
+    groups=serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='name'
+
+    )
    
     class Meta(UserCreateSerializer.Meta):
         model=CustomUser
-        fields=['id','first_name','last_name','password','email', 'is_pro','is_active']
+        fields=['id','first_name','last_name','password','email', 'is_pro','is_active','groups']
         extra_kwargs={'password':{'write_only':True}, 'is_active':{'read_only':True}}
     
 
