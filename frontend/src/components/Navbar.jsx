@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Navigate, NavLink } from 'react-router-dom'
-import { navItem } from '../constants/constant'
+
 import Register from '../pages/Register'
 // icons
 import {FaBars,FaXmark} from "react-icons/fa6";
@@ -8,10 +8,44 @@ import { IoLogoFacebook } from "react-icons/io5";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaInstagram } from "react-icons/fa";
 import AuthButton from './AuthButton';
+import { useAuth } from "../hooks/AuthProvider"
 const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen]=useState(false);
-  const [isLogin, setIsLogin]=useState(false)
+  const [isLogin, setIsLogin]=useState(false);
+  const {isManager}=useAuth();
+
+
+  // elements for 
+  const navItem=[
+    {
+        path:'/',
+        link:'Home'
+    },
+    {
+        path:'/services',
+        link:'Services'
+    },
+    {
+        path:'/contact',
+        link:'Contact'
+    },
+    {
+        path:'/about',
+        link:'About'
+    },
+    {
+        path:'/articles',
+        link:'Articles'
+    },
+
+    isManager && {
+        path:'/dashboard',
+        link:'Dashboard'
+    }
+
+].filter(Boolean) // filters out 'false'
+ 
 
   // const logoutAndLogin=()=>{
   //      localStorage.clear();

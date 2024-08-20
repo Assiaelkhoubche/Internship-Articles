@@ -10,6 +10,7 @@ const AuthContext=createContext();
 export const AuthProvider = ({children}) => {
    
    const [isAuthenticated, setIsAuthenticated]=useState(false);
+   const [isManager, setIsManager]=useState(false);
    
 
    useEffect(()=>{
@@ -39,9 +40,15 @@ export const AuthProvider = ({children}) => {
                 await refreshToken();   
 
             }else{
+
                 setIsAuthenticated(true);
-                console.log('token exp:',tokenExpiration<now)
-                console.log('payload',decodedToken.groups)
+                // console.log('token exp:',tokenExpiration<now)
+               
+                if(decodedToken.groups && decodedToken.groups.includes('userManager')){
+                     setIsManager(true);
+                }else{
+                    setIsManager(false);
+                }
             }
 
         }catch(err){
@@ -64,6 +71,16 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem(ACCESS_TOKEN, res.data.access);
             setIsAuthenticated(true);
 
+            const newAccessToken=res.data.access;
+            const decodedToken=jwtDecode(newAccessToken);
+            
+            if(decodedToken.groups && decodedToken.groups.includes('userManager')){
+                setIsManager(true);
+            }else{
+                setIsManager(false);
+            }
+                
+
         }else{
             setIsAuthenticated(false);
         }
@@ -81,7 +98,7 @@ export const AuthProvider = ({children}) => {
 
 
   return (
-    <AuthContext.Provider value={{isAuthenticated,setIsAuthenticated}}>
+    <AuthContext.Provider value={{isAuthenticated,isManager,setIsAuthenticated}}>
          {children}
     </AuthContext.Provider>
   )
