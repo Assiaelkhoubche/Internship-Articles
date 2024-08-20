@@ -41,6 +41,7 @@ export const AuthProvider = ({children}) => {
             }else{
                 setIsAuthenticated(true);
                 console.log('token exp:',tokenExpiration<now)
+                console.log('payload',decodedToken.groups)
             }
 
         }catch(err){

@@ -1,12 +1,26 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import Token
 from .models import CustomUser, Category, Article, Tag
 
 from djoser.serializers import UserCreateSerializer 
 from .utils import Google, register_social_user
 from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
+class CustomTokenSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token= super().get_token(user);
+        
+        token['email']=user.email;
+        token['first_name']=user.first_name;
+        
+        token['groups']=[group.name for group in user.groups.all()]
+        
+        return token;
+      
 
 class GoogleSignInSerializer(serializers.Serializer):
 
