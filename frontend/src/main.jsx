@@ -21,6 +21,9 @@ import Activate from './pages/Activate.jsx'
 import ResetPassword from './pages/ResetPassword.jsx'
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import Users from './components/DashbordComponents.jsx/Users.jsx'
+import ArticlesDashboard from './components/DashbordComponents.jsx/ArticlesDashboard.jsx'
+import BlogPage from './components/BlogPage.jsx'
 
 
 
@@ -87,7 +90,17 @@ const router=createBrowserRouter([
       },
       {
         path:'dashboard',
-        element:<Dashboard/>
+        element:<Dashboard/>,
+        children:[
+           {
+              path:'users',
+              element:<Users/>
+           },
+           {
+               path:'listArticles',
+               element:<BlogPage/>
+           },
+        ]
       },
       {
         path:"*",

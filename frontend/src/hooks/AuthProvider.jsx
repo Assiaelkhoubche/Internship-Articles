@@ -11,6 +11,7 @@ export const AuthProvider = ({children}) => {
    
    const [isAuthenticated, setIsAuthenticated]=useState(false);
    const [isManager, setIsManager]=useState(false);
+
    
 
    useEffect(()=>{
@@ -42,8 +43,12 @@ export const AuthProvider = ({children}) => {
             }else{
 
                 setIsAuthenticated(true);
-                // console.log('token exp:',tokenExpiration<now)
                
+                // console.log('token exp:',tokenExpiration<now)
+                /////////////////////////////////////
+                console.log('tokennn information', decodedToken );
+                
+
                 if(decodedToken.groups && decodedToken.groups.includes('userManager')){
                      setIsManager(true);
                 }else{

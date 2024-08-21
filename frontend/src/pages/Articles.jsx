@@ -10,7 +10,7 @@ const Articles = () => {
   const title=' Welcome to Our Blog'
 
   const location=useLocation()
-  const isArticleList= location.pathname==='/articles'
+  const isArticleList= location.pathname==='/articles'|| location.pathname==='/dashboard/listArticles'
    
   return (
     <>

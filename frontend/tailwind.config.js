@@ -16,6 +16,9 @@ export default {
           2:'#ffffff',
           3:' #fb923c',
           4:'#d1d5db',
+          5:'#C7D2FE',
+          6:'#3730a3',
+
 
         }
       },

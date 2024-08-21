@@ -16,6 +16,7 @@ class CustomTokenSerializer(TokenObtainPairSerializer):
         
         token['email']=user.email;
         token['first_name']=user.first_name;
+        token['last_name']=user.last_name;
         
         token['groups']=[group.name for group in user.groups.all()]
         
