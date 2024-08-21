@@ -5,15 +5,16 @@ import { useState } from 'react';
 import { ACCESS_TOKEN } from '../constants/constant';
 import { jwtDecode } from 'jwt-decode';
 import { FiMoreVertical } from "react-icons/fi";
+import { useContext } from 'react';
+import { SidebarContext } from '../pages/Dashboard';
 
 
 
-export const SidebarContext= createContext();
 
 const SidebarManager = ({children}) => {
     
     const [user, setUser]=useState({});
-    const [expanded, setExpanded]=useState(true);
+    const {expanded, setExpanded}= useContext(SidebarContext);
 
 
     useEffect(()=>{
@@ -76,11 +77,11 @@ const SidebarManager = ({children}) => {
                 
                 </div>
 
-                <SidebarContext.Provider value={{expanded}}>
+                
                     <ul className='flex-1 px-3 relative'>
                         {children}
                     </ul>
-                </SidebarContext.Provider>
+                
 
                  <div className='border-t flex p-3'>
 

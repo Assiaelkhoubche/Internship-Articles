@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { SidebarContext } from './SidebarManager';
 import Tooltip from './Tooltip';
+import { SidebarContext } from '../pages/Dashboard';
 
 const SideItem = ({icon, text, active, alert}) => {
 
-    const {expanded}=useContext(SidebarContext);
+    
     const [tooltipPos, setTooltipPos]=useState(null);
 
+    const {expanded}=useContext(SidebarContext);
 
 
     const handleMouseEnter = (e)=>{
@@ -27,10 +28,12 @@ const SideItem = ({icon, text, active, alert}) => {
             console.log('expanded', expanded)
     },[expanded]);
 
+
   return (
    <li className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors
       ${active ?'bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800'
                :'hover:bg-indigo-50 text-gray-600 group'} `}
+
        onMouseEnter={handleMouseEnter}   
        onMouseLeave={handleMouseLeave}         
     
