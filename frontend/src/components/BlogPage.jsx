@@ -5,8 +5,8 @@ import ArticleCards from './ArticleCards';
 import Pagination from './Pagination';
 import CategorySection from './CategorySection';
 import SideBare from './SideBare';
-import { Outlet } from 'react-router-dom';
-
+import { Outlet, useLocation } from 'react-router-dom';
+import SearchBar from './SearchBar';
 const BlogPage = () => {
      
      const [articles, setArticles] = useState([]);
@@ -16,6 +16,8 @@ const BlogPage = () => {
      const [currentPage, setCurrentPage]=useState(1);
      const [selectCategory, setSelectCategory]=useState(null)
      const [activeCategory, setActiveCategory]=useState(null);
+     const location=useLocation();
+     const isDashboard=location.pathname==='/dashboard/listArticles' || location.pathname==='/articles' 
 
      const pageSize=13  // here we gonna define the numbers of blocks per page 
 
@@ -29,7 +31,7 @@ const BlogPage = () => {
 
 
    // get articles
-     const getArticles= async ()=>{
+     const getArticles= async (tagName=null)=>{
         
         try{
             let url='/api/articles/'
@@ -37,6 +39,10 @@ const BlogPage = () => {
             if(selectCategory){
                console.log('selectCategory iddddddddddddddddddddd',selectCategory.id);
                url += `?category=${selectCategory.id}`
+            }
+
+            if(tagName){
+                url += selectCategory ?`&tag=${tagName}`:`?&tag=${tagName}`;
             }
 
             
@@ -76,10 +82,20 @@ const BlogPage = () => {
          setActiveCategory(category);
    }
 
+   const handleSearchByTag=(tagName)=>{
+      setCurrentPage(1);
+      getArticles(tagName);
+   }
+
 
 
   return (
     <div>
+
+      {/* search bar */}
+        {isDashboard &&( <div className='m-8 mr-5 flex flex-col justify-center items-center p-6 w-full border-b shadow-lg  hover:shadow-2xl transition-shadow duration-300 rounded-2xl'>
+               <SearchBar onSearchByTag={handleSearchByTag} />
+          </div>)}
 
       {/* category section */}
       <div>

@@ -23,7 +23,7 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
                                     
                            />
                         
-                        {item.is_pro && <div className='absolute flex items-center gap-2 bottom-1 right-0 bg-black bg-opacity-20 backdrop-blur  rounded-lg px-2'>
+                        {item.is_pro && <div className='absolute flex items-center gap-2 bottom-1 right-0 bg-black bg-opacity-20 backdrop-blur rounded-lg px-2'>
                                     <FaCrown className='text-yellow-500 inline-flex size-5'/>
                                     <p className='inline-flex opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white mt-1'>Pro</p>
                                 </div>}

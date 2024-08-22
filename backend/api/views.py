@@ -43,12 +43,20 @@ class ArticleListView(generics.ListAPIView):
     
     def get_queryset(self):
         queryset=Article.objects.all();
+
         category_id=self.request.query_params.get('category');
         print('category_id',category_id);
         if category_id:
             queryset =queryset.filter(category__id=category_id)
+
+        
+        tag_name= self.request.query_params.get('tag');
+
+        if tag_name:
+
+            queryset=queryset.filter(tags__name=tag_name);
             
-        return queryset
+        return queryset;
 
 
 class ArticleRetreiveView(generics.RetrieveAPIView):
@@ -106,10 +114,16 @@ class CategoryList(generics.ListAPIView):
 
 class CreateListTage(generics.ListCreateAPIView):
     serializer_class=TagSerializer;
-    permission_classes=[IsUserManagerWithModelPermission];
+    permission_classes=[IsUserCustomer | IsUserManager];
     
     def get_queryset(self):
         return Tag.objects.all();
+
+
+# class TagList(generics.ListAPIView):
+#     serializer_class=TagSerializer;
+#     permission_classes=[AllowAny ]; 
+#     queryset=Tag.objects.all();
 
 
 

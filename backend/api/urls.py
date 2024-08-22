@@ -10,6 +10,7 @@ from .views import (
     CreateUserView,
     CategoryList,
     GoogleSignInView,
+    CreateListTage
 )
 
 
@@ -23,5 +24,6 @@ urlpatterns=[
       path('articles/<str:pk>/delete/',ArticleDeleteView.as_view(), name='article-delete') ,
       path('users/',UserListView.as_view(), name='users'),
       path('categories/', CategoryList.as_view(), name='category'),
+      path('tags/',CreateListTage.as_view(), name='tags'),
       path('google/' ,GoogleSignInView.as_view(), name='google'),
 ]
