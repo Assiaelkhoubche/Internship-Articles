@@ -11,10 +11,10 @@ const Articles = () => {
 
   const location=useLocation()
   const isArticleList= location.pathname==='/articles'|| location.pathname==='/dashboard/listArticles'
-   
+  
   return (
     <>
-        <BannerComponents children={title}/>
+      
 
         {/* all blogs container */}
           <div className='max-w-7xl mx-auto'>

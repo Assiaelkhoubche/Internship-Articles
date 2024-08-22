@@ -98,7 +98,13 @@ const router=createBrowserRouter([
            },
            {
                path:'listArticles',
-               element:<BlogPage/>
+               element:<Articles/>,
+               children:[
+                  {
+                    path:':id',
+                    element:<Article/>,
+                  }
+               ]
            },
         ]
       },

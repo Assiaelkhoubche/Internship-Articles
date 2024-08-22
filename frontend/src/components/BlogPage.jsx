@@ -5,6 +5,7 @@ import ArticleCards from './ArticleCards';
 import Pagination from './Pagination';
 import CategorySection from './CategorySection';
 import SideBare from './SideBare';
+import { Outlet } from 'react-router-dom';
 
 const BlogPage = () => {
      
@@ -98,6 +99,7 @@ const BlogPage = () => {
                <div>
                   <SideBare articles={articles}/>
                </div>
+
       </div>
    
 
@@ -108,6 +110,7 @@ const BlogPage = () => {
                 <Pagination handlePageChange={handlePageChange} articles={articles} currentPage={currentPage} pageSize={pageSize}/>
 
       </div>
+      
     </div>
   )
 

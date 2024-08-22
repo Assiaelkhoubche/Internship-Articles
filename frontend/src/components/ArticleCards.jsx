@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import { FaCrown, FaUser } from "react-icons/fa";
 
 const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
@@ -7,13 +7,15 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
     const filterArticles = articles
                           .filter((articles)=>!selectCategory || articles.category.id === selectCategory.id)
                           .slice((currentPage -1)*pageSize, currentPage*pageSize);
+   const location=useLocation();
+   const isDashboard= location.pathname.startsWith('/dashboard');
 
   return (
     <div className=' z-0 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8  '>
        {filterArticles.map((item,index)=>(
 
           item.picture &&
-             (<Link key={index} to={`/articles/${item.id}`} className=' relative group p-5 shadow-lg rounded cursor-pointer'>
+             (<Link key={index} to={!isDashboard? `/articles/${item.id}`:`/dashboard/listArticles/${item.id}`} className=' relative group p-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in rounded-lg cursor-pointer'>
                <div className='relative'>
                   
                         <img src={item.picture} alt="pic" 
