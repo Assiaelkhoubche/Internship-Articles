@@ -12,8 +12,6 @@ import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import Register from './pages/Register.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-
-import Protected from './components/Protected.jsx'
 import Login from './pages/Login.jsx'
 import { AuthProvider } from './hooks/AuthProvider.jsx'
 
@@ -21,10 +19,9 @@ import Activate from './pages/Activate.jsx'
 import ResetPassword from './pages/ResetPassword.jsx'
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm.jsx'
 import Dashboard from './pages/Dashboard.jsx'
-import Users from './components/DashbordComponents.jsx/Users.jsx'
-import ArticlesDashboard from './components/DashbordComponents.jsx/ArticlesDashboard.jsx'
-import BlogPage from './components/BlogPage.jsx'
-
+import Users from './components/DashbordComponents/Users.jsx'
+import  CreateArticle from './components/DashbordComponents/CreateArticle.jsx'
+import UpdateArticle from './components/DashbordComponents/UpdateArticle.jsx'
 
 
 
@@ -105,6 +102,14 @@ const router=createBrowserRouter([
                     element:<Article/>,
                   }
                ]
+           },
+           {
+             path:'create-article',
+             element:<CreateArticle/>,
+           },
+           {
+              path:'update-article',
+              element:<UpdateArticle/>
            },
         ]
       },

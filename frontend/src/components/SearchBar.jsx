@@ -81,7 +81,7 @@ const SearchBar = ({onSearchByTag}) => {
         
         {
            activeSearch.length>0 && hideSearch && (
-               <div className={` absolute top-20 p-4 bg-indigo-800 bg-opacity-20 backdrop-blur text-indigo-600 w-full rounded-xl left-0  flex flex-col gap-2`}>
+               <div className={`z-50 absolute top-20 p-4 bg-indigo-800 bg-opacity-20  hover:font-bold backdrop-blur text-indigo-600 w-full rounded-xl left-0  flex flex-col gap-2`}>
                        
                        <span 
                                

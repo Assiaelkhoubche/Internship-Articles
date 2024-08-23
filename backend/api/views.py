@@ -66,17 +66,40 @@ class ArticleRetreiveView(generics.RetrieveAPIView):
 
 
 class ArticleCreateView(generics.CreateAPIView):
+    
     serializer_class=ArticleSerializer;
-    permission_classes=[IsUserManagerWithModelPermission];
+    permission_classes=[IsUserManager];
     
     def get_queryset(self):
         return Article.objects.all();
     
-    def perform_create(self,serializer):
-        if serializer.is_valid():
-            serializer.save(athor=self.request.user);
-        else:
-            print(serializer.errors)
+    def post(self, request, *args, **kwargs):
+        print('request method', request.method);
+        return super().post(request, *args, **kwargs)
+    
+    def perform_create(self , serializer):
+        
+        new_category_name=self.request.data.get('category',None);
+        category=None
+        new_tags_name=self.request.data.getlist('tags[]');
+        tags=[]
+
+
+        if new_category_name:
+            category , created=Category.objects.get_or_create(name=new_category_name);
+            print('category');
+        for tag_name in new_tags_name:
+            tag, created=Tag.objects.get_or_create(name=tag_name);
+            tags.append(tag);
+        
+        
+        article=serializer.save(author=self.request.user, category=category);
+        article.tags.set(tags);
+
+        # if category:
+        #     article.category=category;
+        
+        article.save();
 
 
 class ArticleUpdateView(generics.UpdateAPIView):
@@ -86,10 +109,33 @@ class ArticleUpdateView(generics.UpdateAPIView):
     def get_queryset(self):
         return Article.objects.all();
 
+    def put(self, request, *args, **kwargs):
+        print('put Method: ', request.method);
+        return super().put(request, *args, **kwargs);
+    
+    def perform_update(self, serializer):
+        
+        new_tags_name=self.request.data.getlist('tags[]');
+        tags=[];
+        new_category_name=self.request.data.get('category',None);
+        category=None;
+        
+        if new_category_name:
+            category, created=Category.objects.get_or_create(name=new_category_name);
+        
+        for tag_name in new_tags_name:
+            tag, created=Tag.objects.get_or_create(name=tag_name);
+            tags.append(tag);
+        
+        article=serializer.save(author=self.request.user, category=category);
+        article.tags.set(tags);
+        article.save();
+
+
 
 class ArticleDeleteView(generics.DestroyAPIView):
     serializer_class=ArticleSerializer;
-    permission_classes=[IsUserManagerWithModelPermission];
+    permission_classes=[IsUserManager];
     
     def get_queryset(self):
         return Article.objects.all();
