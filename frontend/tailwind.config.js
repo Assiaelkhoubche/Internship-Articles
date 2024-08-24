@@ -9,6 +9,7 @@ export default {
       transitionProperty:{
         'colors':'color, background-color,text-decoration-color,fill, stroke',
         'border':'border-color',
+        'fonts':'font',
       },
       colors:{
         n:{

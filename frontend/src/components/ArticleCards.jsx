@@ -10,7 +10,7 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
     
     const filterArticles = articles
                           .filter((articles)=>!selectCategory || articles.category.id === selectCategory.id)
-                          .slice((currentPage -1)*pageSize, currentPage*pageSize+1);
+                          .slice((currentPage -1)*pageSize, currentPage*pageSize);
 
    const location=useLocation();
    const isDashboard= location.pathname.startsWith('/dashboard');

@@ -20,7 +20,7 @@ const BlogPage = () => {
      const isDashboard=location.pathname==='/dashboard/listArticles' || location.pathname==='/articles' || location.pathname==='/dashboard/update-article'
      const isUpdatePage=location.pathname==='/dashboard/update-article'
 
-     const pageSize=12  // here we gonna define the numbers of blocks per page 
+     const pageSize=13  // here we gonna define the numbers of blocks per page 
 
 
      useEffect(()=>{
