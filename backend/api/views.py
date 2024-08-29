@@ -49,7 +49,6 @@ class ArticleListView(generics.ListAPIView):
         if category_id:
             queryset =queryset.filter(category__id=category_id)
 
-        
         tag_name= self.request.query_params.get('tag');
 
         if tag_name:

@@ -64,8 +64,10 @@ const BlogPage = () => {
          try{
             const res = await api.get('/api/categories/');
             setCategory(res.data);
+            console.log('sssssssssssssssssssssss');
          }catch(err){
             console.log('error get categories',err);
+            console.log('ffffffffffffffffffffffffffffff')
          }
 
      }

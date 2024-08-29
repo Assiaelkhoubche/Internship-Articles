@@ -7,7 +7,6 @@ import Home from './pages/Home.jsx'
 import Articles from './pages/Articles.jsx'
 import NotFound from './pages/NotFound.jsx'
 import Article from './pages/Article.jsx'
-import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import Register from './pages/Register.jsx'
@@ -51,11 +50,6 @@ const router=createBrowserRouter([
               element:<Article />
             }
         ]
-      },
-      {
-        path:'about',
-        element:<About/>
-             
       },
       {
         path:"contact",

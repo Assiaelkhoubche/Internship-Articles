@@ -9,7 +9,7 @@ const Pricing = () => {
   
 
   return (
-    <div className='md:px-14 py-4 max-w-7xl mx-auto mt-10 '>
+    <div id='pricing' className='md:px-14 py-4 max-w-7xl mx-auto mt-10 '>
 
        {/* toggle options */}
        <div className='text-center mb-10'>

@@ -9,7 +9,7 @@ import DeleteArticle from './DashbordComponents/DeleteArticle';
 const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
     
     const filterArticles = articles
-                          .filter((articles)=>!selectCategory || articles.category.id === selectCategory.id)
+                          .filter((articles)=>!selectCategory || articles.category && articles.category.id === selectCategory.id)
                           .slice((currentPage -1)*pageSize, currentPage*pageSize);
 
    const location=useLocation();

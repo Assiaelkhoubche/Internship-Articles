@@ -7,7 +7,7 @@ const Footer = () => {
   return (
    
        
-       <div  className='bg-gradient-to-t from-indigo-200 to-white md:px-14 px-6  mx-auto mt-10 py-10'>
+       <div id='contact' className='bg-gradient-to-t from-indigo-200 to-white md:px-14 px-6  mx-auto mt-10 py-10'>
 
           <div className='my-12 flex flex-col md:flex-row gap-1 max-sm:items-center '>
 

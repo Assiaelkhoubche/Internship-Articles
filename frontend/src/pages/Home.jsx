@@ -11,7 +11,7 @@ const Home = () => {
 
 
   return (
-    <div className='md:px-6 p-4 max-w-screen-2xl mx-auto mt-24'>
+    <div id='home' className='md:px-6 p-4 max-w-screen-2xl mx-auto mt-24'>
        <Banner banner={banner} heading={heading} subheading={subheading} btn1={btn1} btn2={btn2}/>
     </div>
   )
