@@ -6,25 +6,29 @@ export default {
   ],
   theme: {
     extend: {
-      transitionProperty:{
-        'colors':'color, background-color,text-decoration-color,fill, stroke',
+      transitionProperty: {
+        'colors':'color, background-color, text-decoration-color, fill, stroke',
         'border':'border-color',
         'fonts':'font',
       },
       colors:{
         n:{
-          1:'#f97316',
-          2:'#ffffff',
-          3:' #fb923c',
-          4:'#d1d5db',
-          5:'#C7D2FE',
-          6:'#3730a3',
+         
+          1:'#BF00FF',
+          2:'#EBEBEB',
+          3:'#a463ff',
+          4:'#78716c', // stone color paragraph
 
 
         }
       },
       fontFamily:{
         "primary":['Inter','sans-serif'],
+        'secondly':['Jost','sans-serif'],
+      },
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        '4xl':'0 15px 60px -15px rgba(0, 0, 0, 0.3)'
       }
     },
   },

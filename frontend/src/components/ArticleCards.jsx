@@ -42,7 +42,7 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
         ?  (filterArticles.map((item,index)=>(
 
                item.picture && 
-                  (<Link key={index} to={!isDashboard? `/articles/${item.id}`:`/dashboard/listArticles/${item.id}`} className=' relative group p-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in rounded-lg cursor-pointer'>
+                  (<Link key={index} to={!isDashboard? `/articles/${item.id}`:`/dashboard/listArticles/${item.id}`} className=' bg-indigo-100/20 relative group p-5 shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in rounded-lg cursor-pointer'>
                      <div className='relative'>
                         
                               <img src={item.picture} alt="pic" 

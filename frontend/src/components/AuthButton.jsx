@@ -28,7 +28,7 @@ const AuthButton = () => {
              
              <button 
                 onClick={handleLogout}
-                className='bg-n-1 px-3 pb-1  rounded-[5px] hover:bg-n-2 hover:text-n-1 duration-500 ease-in '
+                className='bg-gradient-to-t from-indigo-400 to-purple-400  rounded-[5px] py-2 px-3 font-semibold hover:from-indigo-500 hover:to-purple-500 hover:shadow-xl transition-colors duration-500 ease-in-out '
               >
                   Logout
              </button>
@@ -36,8 +36,8 @@ const AuthButton = () => {
          ):(
                 <button 
                     onClick={handleRegistartion}
-                    className='bg-n-1 px-3 pb-1  rounded-[5px] hover:bg-n-2 hover:text-n-1 duration-500 ease-in '
-                 >
+                    className='bg-gradient-to-t from-indigo-400 to-purple-400  rounded-[5px] py-2 px-3 font-semibold hover:from-indigo-500 hover:to-purple-500 hover:shadow-xl  '
+                    >
                    Sign up
                 </button>
          )}

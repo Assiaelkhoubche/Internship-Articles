@@ -9,8 +9,8 @@ const Pagination = ({handlePageChange,currentPage, articles, pageSize}) => {
      const renderPaginationList=()=>{
          return Array.from({length: togglePage},(_, i)=>i+1)
                      .map((pageNumber)=>(
-                        <li className={`${pageNumber === currentPage? 'bg-n-1 rounded-lg ':'' } liPagination`} key={pageNumber}>
-                           <Link className='flex py-[5px] px-[10px] border border-solid border-gray-300 rounded-lg text-black hover:bg-gray-100 transition-colors duration-500' onClick={()=>handlePageChange(pageNumber)} to="#">{pageNumber}</Link> 
+                        <li className={`${pageNumber === currentPage? 'bg-gradient-to-t from-indigo-500 to-purple-400 text-white rounded-lg ':' text-black font-mono hover:bg-gray-100 rounded-lg' } liPagination`} key={pageNumber}>
+                           <Link className='flex py-[5px] px-[10px] border border-solid border-gray-300 rounded-lg   transition-colors duration-500' onClick={()=>handlePageChange(pageNumber)} to="#">{pageNumber}</Link> 
                         </li>
                      ));  
      }
