@@ -1,7 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+
 // icons
 import { FaArrowRight } from "react-icons/fa";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 
 
@@ -13,19 +16,31 @@ const Banner = ({banner, heading, subheading, btn1, btn2}) => {
               <div className=' flex flex-col md:flex-row-reverse justify-between items-center gap-10'>
 
                     {/* banner image */}
-                      <div className=''>
+                      <motion.div 
+                       variants={fadeIn('down',0.2)}
+                       initial='hidden'
+                       whileInView={'show'}
+                       viewport={{once:false, amount:0.7}}
+                       className=''
+                      >
                           <img src={banner} alt="banner" 
                               className='lg:h-[360px]'
                           />
-                      </div>
+                      </motion.div>
 
                     
                       {/* banner content */}
-                    <div className='md:w-3/5 '>
+                    <motion.div 
+                      variants={fadeIn('up',0.2)}
+                      initial='hidden'
+                      whileInView={'show'}
+                      viewport={{once:false, amount:0.7}}
+                      className='md:w-3/5 '
+                    >
 
-                        <h2 className='md:text-6xl tracking-normal leading-tight text-4xl font-bold  text-white mb-6'>
-                            {heading}
-                        </h2>
+                          <h2 className='md:text-6xl tracking-normal leading-tight text-4xl font-bold  text-white mb-6'>
+                              {heading}
+                          </h2>
                           
                           <p className='text-n-2 text-xl mb-8 font-secondly tracking-[0.001px]'>
                              {subheading}
@@ -43,7 +58,7 @@ const Banner = ({banner, heading, subheading, btn1, btn2}) => {
 
                           </div>
 
-                    </div>
+                    </motion.div>
 
               </div>
 

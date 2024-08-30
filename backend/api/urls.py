@@ -26,4 +26,5 @@ urlpatterns=[
       path('categories/', CategoryList.as_view(), name='category'),
       path('tags/',CreateListTage.as_view(), name='tags'),
       path('google/' ,GoogleSignInView.as_view(), name='google'),
+
 ]

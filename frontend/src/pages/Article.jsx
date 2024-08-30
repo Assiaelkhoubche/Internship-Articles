@@ -40,16 +40,16 @@ const Article = () => {
      }
 
   return (
-    <div>
+    <div className='mt-32 max-w-7xl ml-4'>
         
         {/* blog details */}
-        <div className='max-w-7xl mx-auto my-12 flex flex-col md:flex-row gap-12'>
+        <div className=' mx-auto my-12 flex flex-col md:flex-row gap-16 '>
 
-              <div className='lg:w-3/4 mx-auto'>
-                <div >
+              <div className='lg:w-3/4   '>
+                <div className='shadow-md max-md:mx-auto rounded-lg overflow-hidden w-4/5' >
                     {article.picture && <img src={article.picture} alt='pic' className='w-full mx-auto' />}
                 </div>
-                  <div>
+                <div className='max-md:ml-4 max-md:mr-2'>
                   <h2 className='text-3xl mt-8 font-bold mb-4 text-blue-500 cursor-pointer'>{article.title}</h2>
                 
                   <p className='flex items-baseline gap-3'><FaUser className='inline-flex items-center '/> {article.author.first_name } {article.author.last_name}
@@ -62,42 +62,42 @@ const Article = () => {
                   </p>
                 
                     {/* the main content */}
-                  <p className='text-base text-gray-700 mb-6 mt-10'>
+                  <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                       {article.content}
                   </p>
                 
                     {/* the example content */}
                     <div>
-                            <p className='text-base text-gray-700 mb-6 mt-10'>
+                            <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                               {article.content}
                             </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                 {article.content}
                               </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                 {article.content}
                               </p>
                 
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                 {article.content}
                               </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                   {article.content}
                               </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                   {article.content}
                               </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                   {article.content}
                               </p>
-                              <p className='text-base text-gray-700 mb-6 mt-10'>
+                              <p className='text-base text-gray-700 mb-6 mt-10 font-secondly'>
                                   {article.content}
                               </p>
-                </div>
-                  </div>
+                   </div>
+                 </div>
               </div>
                 
-              <div>
+              <div className='max-md:ml-6'>
                  <SideBare articles={articles}/>
               </div>
 

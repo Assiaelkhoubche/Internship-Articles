@@ -9,7 +9,7 @@ export const SidebarContext= createContext();
 
 const Dashboard = () => {
    
-  const [expanded, setExpanded]=useState(true);
+  const [expanded, setExpanded]=useState(false);
   const location=useLocation();
   
 

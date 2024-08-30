@@ -93,7 +93,7 @@ const BlogPage = () => {
 
 
   return (
-    <div>
+    <div className='mt-32 max-w-screen-2xl'>
 
       {/* search bar */}
         {isDashboard &&( <div className='m-8 mr-5 flex flex-col justify-center items-center p-6 w-full border-b shadow-lg  hover:shadow-2xl transition-shadow duration-300 rounded-2xl'>
@@ -115,7 +115,8 @@ const BlogPage = () => {
                <ArticleCards articles={articles} currentPage={currentPage} selectCategory={selectCategory} pageSize={pageSize}/>
                
                {/* side bar componenets */}
-              {!isUpdatePage &&<div>
+              {!isUpdatePage &&
+               <div className=''>
                   <SideBare articles={articles}/>
                </div>}
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { packages } from '../constants/constant';
 import { FaCircleCheck } from "react-icons/fa6";
+import {motion} from 'framer-motion'
+import { fadeIn } from '../variants';
 
 const Pricing = () => {
 
@@ -9,7 +11,12 @@ const Pricing = () => {
   
 
   return (
-    <div id='pricing' className='md:px-14 py-4 max-w-7xl mx-auto mt-10 '>
+    <motion.div 
+        variants={fadeIn('up',0.2)}
+        initial='hidden'
+        whileInView={'show'}
+        viewport={{once:false, amount:0.3}}
+     id='pricing' className='md:px-14 py-4 max-w-7xl mx-auto mt-10 '>
 
        {/* toggle options */}
        <div className='text-center mb-10'>
@@ -49,7 +56,10 @@ const Pricing = () => {
 
 
       {/* pricing cards */}
-      <div className='grid sm:grid-cols-2 lg:grid-cols-3  gap-10 mt-20 md:w-11/12 mx-auto'>
+      <div 
+      
+       className='grid sm:grid-cols-2 lg:grid-cols-3  gap-10 mt-20 md:w-11/12 mx-auto'
+      >
            {
             packages.map((pkg, index)=>(
                <div key={index} className='border py-10 md:px-6 px-4 max-sm:mx-4 rounded-lg md:shadow-3xl shadow-4xl'>
@@ -91,7 +101,7 @@ const Pricing = () => {
            }
       </div>
 
-    </div>
+    </motion.div>
   )
 }
 

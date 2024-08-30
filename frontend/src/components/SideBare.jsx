@@ -9,9 +9,9 @@ const SideBare = ({articles}) => {
     const {id}=useParams()
 
   return (
-    <div>
+    <div className=''>
        <div>
-           <h3 className='text-2xl font-semibold px-1 inline-block mb-4'>Leatest Blogs</h3>
+           <h3 className='text-2xl font-semibold px-1 inline-block mb-4 font-secondly text-indigo-800'>Leatest Blogs</h3>
            <div>
                  
                  {popularArticles.map((article , index)=>(

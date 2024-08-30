@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import api from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
 import LoadingIndicator from '../components/LoadingIndicator';
+import confirmed from '../assets/confirmed.svg';
 
 const ResetPasswordConfirm = () => {
     
@@ -23,8 +24,9 @@ const ResetPasswordConfirm = () => {
               setReload(false);
               navigate('/');
            }else{
-             alert('error with response: '+ res.data.detail || 'Unknown error')
-           }
+             alert('error with response: '+ res.data || 'Unknown error')
+              setReload(false);
+            }
 
         }catch(err){
            if(err.response){
@@ -39,33 +41,40 @@ const ResetPasswordConfirm = () => {
    }
 
   return (
-    <div className='py-40'>
-       ResetPassword Confirm
+    <div className='py-40 max-w-screen-2xl  mx-auto flex flex-col md:flex-row max-md:items-center md:px-16 max-md:gap-10 gap-10 justify-between  lg:px-20'>
+       
+       <div className='w-1/2 '>
+           <img src={confirmed} alt="confirmed" />
+       </div>
 
-       <form onSubmit={handleSubmit} className='form-container'>
+       <div className='w-1/2 max-md:w-3/4 lg:px-20 max-md:mt-10'>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-6 mb-4 font-secondly justify-center text-center [&>button]:mx-auto [&>LoadingIndicator]:mx-auto'>
+             <h1 className='font-bold text-xl text-indigo-800 mb-2'>Confirm your password</h1>
 
-          <h1 className='mb-4'>Confirm your password</h1>
-          <input type="password"
-                 className='form-input'
-                 value={password}
-                 placeholder='new password...'
-                 onChange={(e)=>setPassword(e.target.value)}
-                 required
-          />
-              <input type="password"
-                 className='form-input'
-                 value={confirmPassword}
-                 placeholder='confirm password...'
-                 onChange={(e)=>setConfirmPassword(e.target.value)}
-                 required
-          />
-          {reload && <LoadingIndicator/>}
-          <button className='form-button'>
-               Confirm 
-          </button>
-
-
-       </form>
+             <div className='divinput'>
+                <input type="password"
+                       className='input'
+                       value={password}
+                       placeholder='new password...'
+                       onChange={(e)=>setPassword(e.target.value)}
+                       required
+                />
+             </div>
+                 <div className='divinput'>
+                    <input type="password"
+                       className='input'
+                       value={confirmPassword}
+                       placeholder='confirm password...'
+                       onChange={(e)=>setConfirmPassword(e.target.value)}
+                       required
+                                 />
+                 </div>
+             {reload && <LoadingIndicator/>}
+             <button className='py-2  bg-gradient-to-tr from-indigo-400  to-purple-400 font-secondly hover:from-indigo-500 hover:to-purple-500 font-bold text-white w-1/3 rounded-md'>
+                  Confirm
+             </button>
+          </form>
+       </div>
     </div>
   )
 }

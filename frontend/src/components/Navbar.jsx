@@ -88,11 +88,7 @@ const Navbar = () => {
                <ul className=' hidden md:flex md:items-center gap-12 text-lg font-mono font-semibold ' >
                  {navItem.map((item,index)=>(
                     <li key={index} className='hover:bg-indigo-50 text-gray-600 hover:text-indigo-500 cursor-pointer transition-colors duration-500 '>
-                            {item.scroll ? (<ScrollTo to={item.path} spy={true} smooth={true} offset={-100} activeClass='active'
-                                                        className={({isActive, isPending})=>
-                                                            isActive?'active':''
-                                                        }
-                                            >
+                            {item.scroll ? (<ScrollTo to={item.path} spy={true} smooth={true} offset={-100}  activeClass='active'>
                                                 {item.link}
                                             </ScrollTo>
                                             
@@ -165,12 +161,9 @@ const Navbar = () => {
                             <ul className= {` bg-gradient-to-t from-indigo-600 to-white bg-opacity-20 font-mono  h-screen backdrop-blur rounded text-lg font-bold block space-y-4 px-4 py-20   ${isMenuOpen?' flex-col space-y-10 pl-[40%]  transition-all ease-out duration-150':'hidden'}`} >
                                 {navItem.map((item,index)=>(
                                 <li key={index} className='text-black hover:text-indigo-500 transition-colors duration-500 '>
-                                 { item.scroll?  (<ScrollTo to={item.path} spy={true} smooth={true} offset={-80}
+                                 { item.scroll?  (<ScrollTo to={item.path} spy={true} smooth={true} offset={-80} activeClass='active'
                                                         onClick={toggleMenu}
-                                                        className={({isActive, isPending})=>
-                                                            isActive?'active':''
-                                                        }
-                                                >
+                                                    >
                                                     {item.link}
                                                 </ScrollTo>)
                                                 :

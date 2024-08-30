@@ -17,15 +17,19 @@ function App() {
    const location=useLocation()
 
    const isDashboard= location.pathname.startsWith('/dashboard');
-    const isHomePage=location.pathname==='/'
+    const isHomePage=location.pathname==='/'|| location.pathname==='/dashboard'
   return (
       <>
        {!isDashboard && <Navbar/>}
         <Outlet/>
-        <Features/>
-        <About />
-        <Pricing />
-        {isHomePage && <BottomBanner/>}
+        {isHomePage && 
+                    <>
+                      <Features/>
+                      <About />
+                      <Pricing />
+                      <BottomBanner/>
+                    </>
+        }
         <Footer/>
 
       </>
