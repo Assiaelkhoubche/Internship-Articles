@@ -4,6 +4,7 @@ import { FaFileUpload } from "react-icons/fa";
 import form from '../../assets/form.svg'
 import {motion} from 'framer-motion'
 import { fadeIn } from '../../variants';
+import {  useNavigate } from 'react-router-dom';
 
 const CreateArticle = () => {
    
@@ -14,8 +15,9 @@ const CreateArticle = () => {
    const [picture, setPicture]=useState(null);
    const [isPro, setIsPro]=useState(false);
    const [error, setError]=useState('');
-   const [success, setSuccess]=useState('');
+   const [success, setSuccess]=useState(false);
    const [reload, setReload]=useState(false);
+   const navigate=useNavigate();
 
 
 
@@ -48,8 +50,14 @@ const CreateArticle = () => {
          );
 
 
-         setSuccess('Article created successfully!');
-         setError('');
+        if(res.status===201){
+          setSuccess(true);
+
+          setTimeout(()=>{
+              setSuccess(false);
+              navigate('/dashboard/listArticles');
+          },2000)
+        }
 
          setReload(false);
 
@@ -63,6 +71,7 @@ const CreateArticle = () => {
 
        }catch (err) {
           console.error('Error creating article:', err.response?.data || err.message);
+          setError('Failed to create article');
         }
 
 
@@ -71,7 +80,7 @@ const CreateArticle = () => {
 
 
   return (
-    <div className=' max-w-screen-2xl mt-20 mx-auto flex flex-col-reverse md:flex-row max-md:items-center md:px-4 max-md:gap-10 gap-4 justify-between  lg:px-20  '>
+    <div className='relative max-w-screen-2xl mt-20 mx-auto flex flex-col-reverse md:flex-row max-md:items-center md:px-4 max-md:gap-10 gap-4 justify-between  lg:px-20  '>
          
        
 
@@ -84,7 +93,7 @@ const CreateArticle = () => {
          >
            <h1 className=' text-center font-bold mb-6 font-secondly text-indigo-800'> Create Article </h1>
            
-           {error && <p className='text-red-700 my-3'>Error: {error}</p>}
+           {error && <p className='text-red-700 my-3 font-secondly font-semibold'>Error: {error}</p>}
            
            <form onSubmit={handleSubmit} className='flex flex-col gap-6 mb-4 font-secondly justify-center text-center [&>button]:mx-auto [&>LoadingIndicator]:mx-auto '>
               
@@ -187,6 +196,18 @@ const CreateArticle = () => {
          >
             <img src={form} alt="form" />  
          </motion.div>  
+
+
+         {success && (
+            <motion.div className=' absolute left-0 right-0 top-0 buttom-0 m-auto flex justify-center items-center w-[50%] h-[40%] bg-gradient-to-br from-indigo-400 to-purple-400 bg-opacity-10 rounded-3xl '
+                        variants={fadeIn('down',0)}
+                        initial='hidden'
+                        whileInView={'show'}
+                        viewport={{once:false, amount:0.3}}
+            >
+                 <h1 className='text-white font-secondly font-bold text-3xl mx-2 text-center'> Article created successfuly! </h1>
+            </motion.div>
+         )}
 
     </div>
   )

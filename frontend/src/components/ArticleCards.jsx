@@ -37,7 +37,7 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
 
    }
   return (
-    <div className=' z-0 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8  relative w-4/5  '>
+    <div className=' z-0 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8  relative w-4/5 mx-auto '>
        {!isUpdatePage
         ?  (filterArticles.map((item,index)=>(
 
@@ -106,14 +106,14 @@ const articleCards = ({articles, currentPage, selectCategory, pageSize}) => {
                                                             flext justify-center rounded-xl m-5'
                                           onClick={()=>handleUpdateClick(item)}
                                           >
-                                             Update <MdOutlineCreate size={25} className='inline-block ml-2'/>
+                                             <MdOutlineCreate size={25} className='inline-block ml-2'/>
                                           </button>
 
                                           <button className='py-2 px-2 bg-indigo-500 text-white font-semibold hover:bg-indigo-600 hover:shadow-md
                                                             flext justify-center rounded-xl m-5'
                                                   onClick={()=>handleDeleteClick(item)}
                                           >
-                                             Delete <CiBookmarkRemove size={25} className='inline-block ml-2'/>
+                                              <CiBookmarkRemove size={25} className='inline-block ml-2'/>
                                           </button>
                                        </div>
                            

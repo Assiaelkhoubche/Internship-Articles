@@ -2,15 +2,9 @@ import React from 'react'
 import SidebarManager from '../components/SidebarManager'
 import { LuLayoutDashboard, LuBarChart3 } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
-import { BsBoxes } from "react-icons/bs";
-import { GoPackage } from "react-icons/go";
 import { IoReceiptOutline, IoSettingsOutline, IoCreateOutline } from "react-icons/io5";
 import { GiLifeBuoy } from "react-icons/gi";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
-
-
-
-
 import SideItem from '../components/SideItem';
 import { Link, useLocation } from 'react-router-dom';
 

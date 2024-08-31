@@ -55,7 +55,7 @@ const SidebarManager = ({children}) => {
 
     return (
     
-        <aside className={`h-screen overflow-hidden transition-all ${expanded?'w-72':'w-20'}`}>
+        <aside className={`h-screen overflow-hidden transition-all  ${expanded?'w-72':'w-20'}`}>
             <nav className='h-full flex flex-col bg-white border-r shadow-xl '>
                
                 <div className='p-4 pb-2 flex justify-between items-center'>

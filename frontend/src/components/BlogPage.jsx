@@ -93,7 +93,7 @@ const BlogPage = () => {
 
 
   return (
-    <div className='mt-32 max-w-screen-2xl'>
+    <div className={` ${isUpdatePage?'mt-6':'mt-32'} max-w-screen-2xl`}>
 
       {/* search bar */}
         {isDashboard &&( <div className='m-8 mr-5 flex flex-col justify-center items-center p-6 w-full border-b shadow-lg  hover:shadow-2xl transition-shadow duration-300 rounded-2xl'>
@@ -110,7 +110,7 @@ const BlogPage = () => {
 
 
       {/* articleCards section */}
-      <div className='flex flex-col lg:flex-row gap-12'>
+      <div className={`flex flex-col lg:flex-row gap-12  `}>
                {/* blogs components */}
                <ArticleCards articles={articles} currentPage={currentPage} selectCategory={selectCategory} pageSize={pageSize}/>
                

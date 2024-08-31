@@ -3,12 +3,14 @@ import React from 'react'
 const CategorySection = ({categories, onSelectPage, selectCategory, activeCategory}) => {
       
     console.log('categories', categories);
+
+    const filterCtegories= categories.slice(0,8);
   
     return (
     <div className=' px-4 mb-8 lg:space-x-16 flex flex-wrap font-semibold items-center border-b-2 py-5 text-gray-900'>
-        <button onClick={()=>onSelectPage(null)} className={` lg:ml-12 ${!selectCategory?'text-indigo-600':''}`}>All</button>
+        <button onClick={()=>onSelectPage(null)} className={` lg:ml-12 ${!selectCategory?'text-indigo-600':''} mr-1`}>All</button>
         {
-            categories.map((category, index)=>(
+            filterCtegories.map((category, index)=>(
             
                 <button
                   onClick={()=>onSelectPage(category)} 
