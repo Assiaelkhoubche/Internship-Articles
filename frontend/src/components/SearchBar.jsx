@@ -70,8 +70,8 @@ const SearchBar = ({onSearchByTag}) => {
 
     
   return (
-   <div className=' relative w-[75%]'>
-        <div className='relative flex items-center w-full'>
+   <div className=' relative w-[90%]'>
+        <div className='relative flex items-center w-full '>
              <input type='search' value={searchTerm} onChange={handleChange} placeholder='Search for articles...' className='w-full p-4 rounded-full placeholder-indigo-500 bg-indigo-200 border-solid border-2 border-transparent focus:border-indigo-500 focus:caret-indigo-500 outline-none'/>
              <button onClick={()=>onSearchByTag(searchTerm)} className='absolute right-1 top-1/2 bu p-4  -translate-y-6  bg-indigo-400 rounded-full'>
                 <FaSearch className='text-indigo-800'/>
@@ -81,7 +81,7 @@ const SearchBar = ({onSearchByTag}) => {
         
         {
            activeSearch.length>0 && hideSearch && (
-               <div className={`z-50 absolute top-20 p-4 bg-indigo-800 bg-opacity-20  hover:font-bold backdrop-blur text-indigo-600 w-full rounded-xl left-0  flex flex-col gap-2`}>
+               <div className={`absolute z-10 top-20 p-4 bg-indigo-800 bg-opacity-20  hover:font-bold backdrop-blur text-indigo-600 w-full rounded-xl left-0  flex flex-col gap-2`}>
                        
                        <span 
                                

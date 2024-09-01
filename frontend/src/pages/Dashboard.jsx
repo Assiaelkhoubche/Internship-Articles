@@ -24,7 +24,7 @@ const Dashboard = () => {
           
        
 
-        <div className={expanded?'ml-72 mr-16 flex-1 p-6':'ml-24 mr-16 flex-1 p-6'}>
+        <div className={`${expanded?'md:ml-72  ':'md:ml-24 ml-20 '} flex-1 p-6`}>
          
           <Outlet/>
         </div>

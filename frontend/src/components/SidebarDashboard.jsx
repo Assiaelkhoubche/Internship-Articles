@@ -16,7 +16,7 @@ const SidebarDashboard = () => {
     const active= location.pathname
   
   return (
-    <div className='fixed'>
+    <div className='fixed z-10 '>
          
          <SidebarManager>
            <Link to='/dashboard'>

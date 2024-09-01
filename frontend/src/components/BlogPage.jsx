@@ -5,7 +5,7 @@ import ArticleCards from './ArticleCards';
 import Pagination from './Pagination';
 import CategorySection from './CategorySection';
 import SideBare from './SideBare';
-import { Outlet, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
 const BlogPage = () => {
      
@@ -18,7 +18,7 @@ const BlogPage = () => {
      const [activeCategory, setActiveCategory]=useState(null);
      const location=useLocation();
      const isDashboard=location.pathname==='/dashboard/listArticles' || location.pathname==='/articles' || location.pathname==='/dashboard/update-article'
-     const isUpdatePage=location.pathname==='/dashboard/update-article'
+     const isUpdatePage=location.pathname.startsWith('/dashboard')
 
      const pageSize=13  // here we gonna define the numbers of blocks per page 
 
@@ -93,10 +93,10 @@ const BlogPage = () => {
 
 
   return (
-    <div className={` ${isUpdatePage?'mt-6':'mt-32'} max-w-screen-2xl`}>
+    <div className={` ${isUpdatePage?'mt-6':'mt-32'} max-w-screen-2xl md:max-w-7xl mx-auto`}>
 
       {/* search bar */}
-        {isDashboard &&( <div className='m-8 mr-5 flex flex-col justify-center items-center p-6 w-full border-b shadow-lg  hover:shadow-2xl transition-shadow duration-300 rounded-2xl'>
+        {isDashboard &&( <div className='  flex flex-col justify-center items-center p-6 w-full border-b shadow-lg  hover:shadow-2xl transition-shadow duration-300 rounded-2xl'>
                <SearchBar onSearchByTag={handleSearchByTag} />
           </div>)}
 

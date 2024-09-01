@@ -123,6 +123,7 @@ const UserForm = ({route, method}) => {
                 setTimeout(()=>{
                     navigate('/');
                     setSuccess(false);
+                    
                 },3000);
                 
             }
